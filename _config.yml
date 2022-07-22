@@ -187,7 +187,7 @@ exclude:
   - README.md
   - CHANGELOG.md
   - LICENSE
-  - gulpfile.js
+  - gulpfile
   - node_modules
   - package*.json
 
