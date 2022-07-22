@@ -103,5 +103,3 @@ This work is published under [MIT](https://github.com/cotes2020/jekyll-theme-chi
 
 [jb]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
 [cn-donation]: https://cotes.gitee.io/alipay-wechat-donation/
-
-RANDOM COMMIT
