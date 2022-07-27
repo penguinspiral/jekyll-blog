@@ -1,0 +1,15 @@
+version: 0.1
+￼frontend:
+￼  phases:
+￼    preBuild:
+￼      commands:
+￼        - rvm --default use $VERSION_RUBY_2_6
+￼        - gem install bundler
+￼        - bundler
+￼    build:
+￼      commands:
+￼        - jekyll build
+￼  artifacts:
+￼    baseDirectory: _site
+￼    files:
+￼      - '**/*'
