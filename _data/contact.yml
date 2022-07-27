@@ -15,6 +15,10 @@
   type: rss
   icon: 'fas fa-rss'
   noblank: true
+-
+  type: flickr
+  icon: 'fab fa-flickr'
+  url: 'https://www.flickr.com/photos/186175515@N02/albums'
 
 # Uncomment and complete the url below to enable more contact options
 # -
