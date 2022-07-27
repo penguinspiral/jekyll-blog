@@ -4,8 +4,9 @@
   type: github
   icon: 'fab fa-github'
 -
-  type: twitter
-  icon: 'fab fa-twitter'
+  type: linkedin
+  icon: 'fab fa-linkedin'
+  url:  'https://www.linkedin.com/in/mylesgrindon/'
 -
   type: email
   icon: 'fas fa-envelope'
@@ -14,6 +15,10 @@
   type: rss
   icon: 'fas fa-rss'
   noblank: true
+-
+  type: flickr
+  icon: 'fab fa-flickr'
+  url: 'https://www.flickr.com/photos/186175515@N02/albums'
 
 # Uncomment and complete the url below to enable more contact options
 # -
