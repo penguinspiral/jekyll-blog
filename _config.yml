@@ -183,6 +183,7 @@ compress_html:
 exclude:
   - '*.gem'
   - '*.gemspec'
+  - amplify.yml
   - tools
   - README.md
   - CHANGELOG.md
