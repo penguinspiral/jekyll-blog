@@ -4,7 +4,7 @@ frontend:
     preBuild:
       commands:
         - rvm --default use $VERSION_RUBY_2_6
-        - gem install bundler
+        - gem install bundler --version 2.3.20
         - bundler
     build:
       commands:
