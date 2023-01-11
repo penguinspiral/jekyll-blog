@@ -15,3 +15,26 @@ LINTER_RULES_PATH: '.linters/'
 
 PRINT_ALPACA: false
 PRINT_ALL_FILES: true
+
+
+#
+# MARKDOWN
+# https://megalinter.io/v6/descriptors/markdown/
+#
+
+# Linter name:       MarkdownLint
+# Linter version:    0.33.0
+# Linter config:     https://github.com/DavidAnson/markdownlint#readme
+# MegaLinter config: https://megalinter.io/v6/descriptors/markdown_markdownlint/
+MARKDOWN_MARKDOWNLINT_CONFIG_FILE: 'markdown/markdownlint.yaml'
+
+# Linter name:       markdown-link-check
+# Linter version:    3.10.3
+# Linter config:     https://github.com/tcort/markdown-link-check#readme
+# MegaLinter config: https://megalinter.io/v6/descriptors/markdown_markdown_link_check/
+MARKDOWN_MARKDOWN_LINK_CHECK_CONFIG_FILE: 'markdown/markdown-link-check.json'
+
+# Linter name:       markdown-table-formatter
+# Linter version:    1.4.0
+# Linter config:     https://github.com/nvuillam/markdown-table-formatter#readme
+# MegaLinter config: https://megalinter.io/v6/descriptors/markdown_markdown_table_formatter/
