@@ -38,3 +38,26 @@ MARKDOWN_MARKDOWN_LINK_CHECK_CONFIG_FILE: 'markdown/markdown-link-check.json'
 # Linter version:    1.4.0
 # Linter config:     https://github.com/nvuillam/markdown-table-formatter#readme
 # MegaLinter config: https://megalinter.io/v6/descriptors/markdown_markdown_table_formatter/
+
+
+#
+# SPELL
+# https://megalinter.io/v6/descriptors/spell/
+#
+
+# Linter name:       cspell
+# Linter version:    6.18.1
+# Linter config:     https://cspell.org/configuration/
+# MegaLinter config: https://megalinter.io/v6/descriptors/spell_cspell/
+SPELL_CSPELL_CONFIG_FILE: 'spell/cspell/cspell.yaml'
+
+# Linter name:       misspell
+# Linter version:    0.3.4
+# Linter config:     https://github.com/client9/misspell#readme
+# MegaLinter config: https://megalinter.io/v6/descriptors/spell_misspell/
+
+# Linter name:       proselint
+# Linter version:    0.13.0
+# Linter config:     https://github.com/amperser/proselint#readme
+# MegaLinter config: https://megalinter.io/latest/descriptors/spell_proselint/
+SPELL_PROSELINT_RULES_PATH: '.linters/spell/'
