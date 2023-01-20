@@ -1,0 +1,1 @@
+# Ref: https://github.com/streetsidesoftware/cspell/blob/main/docs/docs/dictionaries-custom.md
