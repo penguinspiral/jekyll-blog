@@ -17,6 +17,9 @@ LINTER_RULES_PATH: '.linters/'
 PRINT_ALPACA: false
 PRINT_ALL_FILES: true
 
+APPLY_FIXES:
+ - YAML_PRETTIER
+
 #
 # MARKDOWN
 # https://megalinter.io/v6/descriptors/markdown/
