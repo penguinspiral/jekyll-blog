@@ -1,0 +1,4 @@
+---
+# Default yamllint options: https://yamllint.readthedocs.io/en/stable/configuration.html#default-configuration
+# Default MegaLinter yamllint configuration file: /action/lib/.automation/.yamllint.yml
+extends: default
