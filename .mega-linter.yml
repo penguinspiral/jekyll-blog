@@ -9,18 +9,22 @@
 ENABLE:
   - MARKDOWN
   - SPELL
+  - YAML
 
-FILTER_REGEX_INCLUDE: '_posts/'
+FILTER_REGEX_INCLUDE: (_posts/|.linters/|.mega-linter.yml)
 LINTER_RULES_PATH: '.linters/'
 
 PRINT_ALPACA: false
 PRINT_ALL_FILES: true
 
+APPLY_FIXES:
+ - YAML_PRETTIER
 
 #
 # MARKDOWN
 # https://megalinter.io/v6/descriptors/markdown/
 #
+MARKDOWN_FILTER_REGEX_INCLUDE: (_posts/)
 
 # Linter name:       MarkdownLint
 # Linter version:    0.33.0
@@ -44,6 +48,7 @@ MARKDOWN_MARKDOWN_LINK_CHECK_CONFIG_FILE: 'markdown/markdown-link-check.json'
 # SPELL
 # https://megalinter.io/v6/descriptors/spell/
 #
+SPELL_FILTER_REGEX_INCLUDE: (_posts/)
 
 # Linter name:       cspell
 # Linter version:    6.18.1
@@ -61,3 +66,28 @@ SPELL_CSPELL_CONFIG_FILE: 'spell/cspell/cspell.yaml'
 # Linter config:     https://github.com/amperser/proselint#readme
 # MegaLinter config: https://megalinter.io/latest/descriptors/spell_proselint/
 SPELL_PROSELINT_RULES_PATH: '.linters/spell/'
+
+
+#
+# YAML
+# https://megalinter.io/v6/descriptors/yaml/
+#
+YAML_FILTER_REGEX_INCLUDE: (.linters/|.mega-linter.yml)
+
+# Linter name:       prettier
+# Linter version:    2.8.1
+# Linter config:     https://prettier.io/docs/en/configuration.html
+# MegaLinter config: https://megalinter.io/v6/descriptors/yaml_prettier/
+YAML_PRETTIER_CONFIG_FILE: 'yaml/prettierrc.yaml'
+
+# Linter name:       yamllint
+# Linter version:    1.28.0
+# Linter config:     https://yamllint.readthedocs.io/en/stable/configuration.html#configuration
+# MegaLinter config: https://megalinter.io/v6/descriptors/yaml_yamllint/
+YAML_YAMLLINT_CONFIG_FILE: 'yaml/yamllint.yaml'
+
+# Linter name:       v8r
+# Linter version:    0.13.1
+# Linter config:     https://github.com/chris48s/v8r#configuration
+# MegaLinter config: https://megalinter.io/v6/descriptors/yaml_v8r/
+YAML_V8R_CLI_LINT_MODE: 'project'

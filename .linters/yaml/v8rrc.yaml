@@ -1,0 +1,8 @@
+# - One or more filenames or glob patterns describing local file or files to validate
+# - overridden by passing one or more positional arguments
+patterns: ['.mega-linter.yml', '.linters/**/*.y?(a)ml']
+
+# - Level of verbose logging. 0 is standard, higher numbers are more verbose
+# - overridden by passing --verbose / -v
+# - default = 0
+verbose: 0
