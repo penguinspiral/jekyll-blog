@@ -3,13 +3,14 @@ frontend:
   phases:
     preBuild:
       commands:
-        - rvm --default use $VERSION_RUBY_2_6
-        - gem install bundler --version 2.3.20
-        - bundler
+        - bundler cache
     build:
       commands:
-        - jekyll build
+        - /usr/local/bundle/bin/jekyll build
   artifacts:
     baseDirectory: _site
     files:
       - '**/*'
+  cache:
+    paths:
+      - vendor/**/*
