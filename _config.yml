@@ -3,16 +3,12 @@
 # Import the theme
 theme: jekyll-theme-chirpy
 
-# Change the following value to '/PROJECT_NAME' ONLY IF your site type is GitHub Pages Project sites
-# and doesn't have a custom domain.
-baseurl: ''
-
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
 lang: en
 
-# Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
+# Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: America/Los_Angeles
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
@@ -25,8 +21,9 @@ tagline: Linux adventures with a Debian twist # it will display as the sub-title
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
 
-# fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: ''
+# Fill in the protocol & hostname for your site.
+# e.g. 'https://username.github.io', note that it does not end with a '/'.
+url: ""
 
 github:
   username: penguinspiral # change to your github username
@@ -54,10 +51,6 @@ google_site_verification:               # fill in to your verification string
 
 google_analytics:
   id: # fill in your Google Analytics ID
-  # Google Analytics pageviews report settings
-  pv:
-    proxy_endpoint: # fill in the Google Analytics superProxy endpoint of Google App Engine
-    cache_path: # the local PV cache data, friendly to visitors from GFW region
 
 # Prefer color scheme setting.
 #
@@ -117,6 +110,9 @@ pwa:
   enabled: true # the option for PWA feature
 
 paginate: 10
+
+# The base URL of your site
+baseurl: ""
 
 # ------------ The following options are not recommended to be modified ------------------
 
@@ -182,13 +178,12 @@ exclude:
   - '*.gem'
   - '*.gemspec'
   - amplify.yml
+  - docs
   - tools
   - README.md
-  - CHANGELOG.md
   - LICENSE
   - gulpfile.js
   - rollup.config.js
-  - node_modules
   - package*.json
 
 jekyll-archives:
