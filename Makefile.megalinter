@@ -1,0 +1,83 @@
+## -----------------------------------------------------------------------------
+## This Makefile abstracts MegaLinter usage suitable for local development and
+## CI/CD pipelines.
+## Its OS-agnostic, container-engine-agnostic (CRI) design facilitates
+## consistent target naming regardless of its operating environment.
+##
+## By default MegaLinter will source its configuration variables from the
+## '.mega-linter.yml' file. Existing configuration options can be overridden by
+## assigning desired values to the designated 'MEGALINTER_OPTS' variable.
+## For example: `make lint MEGALINTER_OPTS='ENABLE=YAML,JSON PRINT_ALPACA=true'`
+## The list of MegaLinter's configuration variables for this repository's
+## utilised version can be found here:
+## https://megalinter.io/7.7.0/config-variables/
+##
+## To guarantee a consistent environment all linter invocations are done within
+## the context of the official, upstream MegaLinter documentation "flavoured"
+## container (https://hub.docker.com/oxsecurity/megalinter-documentation).
+## ----------------------------------------------------------------------------
+
+# Enter interactive shell after target execution
+INTERACTIVE ?= false
+
+MAKEFILE_NAME := $(lastword $(MAKEFILE_LIST))
+
+MEGALINTER_CMD = /entrypoint.sh
+
+# Baremetal environment detected, utilise container engine (CRI)
+ifeq (,$(wildcard /run/.containerenv))
+    EXEC_ENV = _baremetal
+
+    OCI_REGISTRY := docker.io/oxsecurity
+    OCI_IMG      := megalinter-documentation
+    OCI_SHA256   := 215063b7324cde79999e4faae1013d81450bc0cf5847ceeab9212b33ef45f44e  # v7.7.0
+    OCI_URI      := $(OCI_REGISTRY)/$(OCI_IMG)@sha256:$(OCI_SHA256)
+
+    # Container engine (CRI) autodetect
+    ifneq (,$(shell command -v podman 2>/dev/null))
+        CRI_BINARY ?= podman
+    endif
+
+    ifneq (,$(shell command -v docker 2>/dev/null))
+        CRI_BINARY ?= docker
+    endif
+
+    ifndef CRI_BINARY
+        $(error "Error: Supported container engines 'podman', 'docker' not found. Exiting.")
+    endif
+
+    # Container engine (CRI) agnostic defaults
+    CRI_CMD  := run
+    CRI_OPTS := --rm \
+                --tty \
+                --interactive \
+                --volume $(CURDIR):/tmp/lint:rw \
+                --entrypoint /bin/bash \
+                --workdir /tmp/lint
+
+    ifeq ($(INTERACTIVE), true)
+        INTERACTIVE_CMD := ; /bin/bash
+    endif
+
+    # Final CRI "passthrough" make command (continues /bin/bash '--entrypoint' override)
+    CRI_EXEC ?=-c 'make --makefile $(MAKEFILE_NAME) $(MAKECMDGOALS) $(MAKEFLAGS) $(INTERACTIVE_CMD)'
+
+    # Prohibit unsupported "literal" execution of target & child recipe(s)
+    # "Hacky" approach to 'no-op'ing context dependent binaries
+    MEGALINTER_CMD := \# $(MEGALINTER_CMD)
+endif
+
+.PHONY: _baremetal lint help
+
+.DEFAULT_GOAL := help
+
+_baremetal:         # Configures CRI environment (baremetal environments only)
+	@echo "Baremetal platform detected! Leveraging '$(CRI_ENGINE)' container engine..."
+	$(CRI_BINARY) $(CRI_CMD) $(CRI_OPTS) $(OCI_URI) $(CRI_EXEC)
+	@echo "Exiting '$(CRI_BINARY)' container engine! All parent recipes are no-op'd..."
+
+lint: $(EXEC_ENV)  ## Repository linting
+	$(MEGALINTER_OPTS) $(MEGALINTER_CMD)
+
+help:              ## This help
+	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[32m%-10s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
