@@ -30,7 +30,7 @@ JEKYLL_SERVE_OPTS ?= --host 0.0.0.0 \
                      --incremental
 
 # Baremetal environment detected, utilise container engine (CRI)
-ifeq (,$(wildcard /run/.containerenv))
+ifeq (,$(or $(wildcard /run/.containerenv),$(AWS_PLATFORM)))
     EXEC_ENV := _baremetal
 
     OCI_REGISTRY := docker.io/library
