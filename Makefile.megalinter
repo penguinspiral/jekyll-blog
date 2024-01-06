@@ -15,6 +15,7 @@
 ## To guarantee a consistent environment all linter invocations are done within
 ## the context of the official, upstream MegaLinter documentation "flavoured"
 ## container (https://hub.docker.com/oxsecurity/megalinter-documentation).
+## Supported container engines (CRI): podman, docker
 ## ----------------------------------------------------------------------------
 
 # Enter interactive shell after target execution
