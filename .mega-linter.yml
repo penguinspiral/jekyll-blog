@@ -22,26 +22,26 @@ APPLY_FIXES:
 
 #
 # MARKDOWN
-# https://megalinter.io/v6/descriptors/markdown/
+# https://megalinter.io/7.7.0/descriptors/markdown/
 #
 MARKDOWN_FILTER_REGEX_INCLUDE: (_posts/)
 
 # Linter name:       MarkdownLint
-# Linter version:    0.33.0
+# Linter version:    0.38.0
 # Linter config:     https://github.com/DavidAnson/markdownlint#readme
-# MegaLinter config: https://megalinter.io/v6/descriptors/markdown_markdownlint/
+# MegaLinter config: https://megalinter.io/7.7.0/descriptors/markdown_markdownlint/
 MARKDOWN_MARKDOWNLINT_CONFIG_FILE: 'markdown/markdownlint.yaml'
 
 # Linter name:       markdown-link-check
-# Linter version:    3.10.3
+# Linter version:    3.11.2
 # Linter config:     https://github.com/tcort/markdown-link-check#readme
-# MegaLinter config: https://megalinter.io/v6/descriptors/markdown_markdown_link_check/
+# MegaLinter config: https://megalinter.io/7.7.0/descriptors/markdown_markdown_link_check/
 MARKDOWN_MARKDOWN_LINK_CHECK_CONFIG_FILE: 'markdown/markdown-link-check.json'
 
 # Linter name:       markdown-table-formatter
-# Linter version:    1.4.0
+# Linter version:    1.5.0
 # Linter config:     https://github.com/nvuillam/markdown-table-formatter#readme
-# MegaLinter config: https://megalinter.io/v6/descriptors/markdown_markdown_table_formatter/
+# MegaLinter config: https://megalinter.io/7.7.0/descriptors/markdown_markdown_table_formatter/
 
 
 #
