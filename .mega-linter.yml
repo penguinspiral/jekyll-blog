@@ -56,11 +56,6 @@ SPELL_FILTER_REGEX_INCLUDE: (_posts/)
 # MegaLinter config: https://megalinter.io/v6/descriptors/spell_cspell/
 SPELL_CSPELL_CONFIG_FILE: 'spell/cspell/cspell.yaml'
 
-# Linter name:       misspell
-# Linter version:    0.3.4
-# Linter config:     https://github.com/client9/misspell#readme
-# MegaLinter config: https://megalinter.io/v6/descriptors/spell_misspell/
-
 # Linter name:       proselint
 # Linter version:    0.13.0
 # Linter config:     https://github.com/amperser/proselint#readme
