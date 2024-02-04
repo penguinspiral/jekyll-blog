@@ -1,0 +1,14 @@
+# Inherit default configurations (v0.13.0):
+# https://github.com/lycheeverse/lychee/blob/v0.13.0/lychee.example.toml
+
+# Check links inside `<code>` and `<pre>` blocks as well as Markdown code
+# blocks.
+include_verbatim = true
+
+# Exclude all private IPs from checking.
+# Equivalent to setting `exclude_private`, `exclude_link_local`, and
+# `exclude_loopback` to true.
+exclude_all_private = true
+
+# Exclude all mail addresses from checking.
+exclude_mail = true
