@@ -12,6 +12,7 @@
 # MegaLinter
 !.mega-linter.yml
 !.linters
+.linters/spell/vale/styles
 
 # Bundler cache
 .bundle
