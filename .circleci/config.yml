@@ -1,0 +1,76 @@
+version: 2.1
+parameters:
+  sha256-oxsecurity-megalinter-documentation:
+    type: string
+    # v7.7.0
+    default: '215063b7324cde79999e4faae1013d81450bc0cf5847ceeab9212b33ef45f44e'
+  sha256-library-ruby:
+    type: string
+    # 3.3.0-bookworm
+    default: 'c44f9bb8fedfac02c29cd7bb7e22779791b60296249c9e43dbffe85b153e795e'
+
+jobs:
+  job-markdown-lint:
+    docker:
+      - image: oxsecurity/megalinter-documentation@sha256:<< pipeline.parameters.sha256-oxsecurity-megalinter-documentation >>
+    parallelism: 4
+    resource_class: small
+    working_directory: '/tmp/lint'
+    steps:
+      - checkout:
+          path: '/tmp/lint'
+
+      - run:
+          name: 'Run Megalinter Documentation'
+          environment:
+            DESCRIPTORS: 'MARKDOWN SPELL JSON YAML'
+          command: |
+            set -x
+            DESCRIPTOR=$(echo -e ${DESCRIPTORS// /\\n} | circleci tests split)
+            make lint MEGALINTER_OPTS="ENABLE=$DESCRIPTOR"
+
+      - store_artifacts:
+          path: '/tmp/lint/megalinter-reports/linters_logs'
+          destination: 'linters_logs'
+
+      - store_artifacts:
+          path: '/tmp/lint/megalinter-reports/update_sources'
+          destination: 'update_sources'
+
+  job-jekyll-build:
+    docker:
+      - image: library/ruby@sha256:<< pipeline.parameters.sha256-library-ruby >>
+    parallelism: 2
+    resource_class: small
+    working_directory: '/srv/jekyll'
+    steps:
+      - checkout:
+          path: '/srv/jekyll'
+
+      - run:
+          name: 'Generate Gemfile.lock'
+          command: /usr/local/bin/bundler lock
+
+      - restore_cache:
+          keys:
+            - gem-cache-{{ checksum "Gemfile.lock" }}
+
+      - run:
+         name: 'Run Jekyll build'
+         environment:
+           MAKE_TARGETS: 'build doctor'
+         command: |
+           set -x
+           TARGET=$(echo -e ${MAKE_TARGETS// /\\n} | circleci tests split)
+           make $TARGET
+
+      - save_cache:
+           key: gem-cache-{{ checksum "Gemfile.lock" }}
+           paths:
+             - vendor/
+
+workflows:
+  workflow-jekyll-blog:
+    jobs:
+      - job-markdown-lint
+      - job-jekyll-build

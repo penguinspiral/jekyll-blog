@@ -4,6 +4,7 @@
 !.editorconfig
 !.nojekyll
 !.travis.yml
+!.circleci
 !.husky
 !.commitlintrc.json
 !.versionrc.json
