@@ -46,27 +46,36 @@ MARKDOWN_MARKDOWN_LINK_CHECK_CONFIG_FILE: 'markdown/markdown-link-check.json'
 
 #
 # SPELL
-# https://megalinter.io/v6/descriptors/spell/
+# https://megalinter.io/7.7.0/descriptors/spell/
 #
 SPELL_FILTER_REGEX_INCLUDE: (_posts/)
 
 # Linter name:       cspell
-# Linter version:    6.18.1
+# Linter version:    8.1.3
 # Linter config:     https://cspell.org/configuration/
-# MegaLinter config: https://megalinter.io/v6/descriptors/spell_cspell/
-SPELL_CSPELL_CONFIG_FILE: 'spell/cspell/cspell.yaml'
-
-# Linter name:       misspell
-# Linter version:    0.3.4
-# Linter config:     https://github.com/client9/misspell#readme
-# MegaLinter config: https://megalinter.io/v6/descriptors/spell_misspell/
+# MegaLinter config: https://megalinter.io/7.7.0/descriptors/spell_cspell/
+SPELL_CSPELL_CONFIG_FILE: 'spell/cspell/cspell.json'
 
 # Linter name:       proselint
 # Linter version:    0.13.0
 # Linter config:     https://github.com/amperser/proselint#readme
-# MegaLinter config: https://megalinter.io/latest/descriptors/spell_proselint/
+# MegaLinter config: https://megalinter.io/7.7.0/descriptors/spell_proselint/
 SPELL_PROSELINT_RULES_PATH: '.linters/spell/'
 
+# Linter name:       vale
+# Linter version:    2.30.0
+# Linter config:     https://github.com/errata-ai/vale
+# MegaLinter config: https://megalinter.io/7.7.0/descriptors/spell_vale/
+SPELL_VALE_PRE_COMMANDS:
+  - command: 'vale sync'
+    cwd: 'workspace'
+SPELL_VALE_CONFIG_FILE: '.vale.ini'
+
+# Linter name:       lychee
+# Linter version:    0.13.0
+# Linter config:     https://lychee.cli.rs/#/usage/config
+# MegaLinter config: https://megalinter.io/7.7.0/descriptors/spell_lychee/
+SPELL_LYCHEE_CONFIG_FILE: 'spell/lychee.toml'
 
 #
 # YAML
