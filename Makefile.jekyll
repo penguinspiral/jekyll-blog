@@ -35,7 +35,7 @@ ifeq (,$(or $(wildcard /run/.containerenv),$(AWS_PLATFORM)))
 
     OCI_REGISTRY := docker.io/library
     OCI_IMG      := ruby
-    OCI_SHA256   := c44f9bb8fedfac02c29cd7bb7e22779791b60296249c9e43dbffe85b153e795e  # 3.3.0-bookworm
+    OCI_SHA256   := d4233f4242ea25346f157709bb8417c615e7478468e2699c8e86a4e1f0156de8 # 3.3.4-bookworm
     OCI_URI      := $(OCI_REGISTRY)/$(OCI_IMG)@sha256:$(OCI_SHA256)
 
     # Container engine (CRI) autodetect
