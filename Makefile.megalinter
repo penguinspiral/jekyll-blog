@@ -73,7 +73,7 @@ endif
 .DEFAULT_GOAL := help
 
 _baremetal:         # Configures CRI environment (baremetal environments only)
-	@echo "Baremetal platform detected! Leveraging '$(CRI_ENGINE)' container engine..."
+	@echo "Baremetal platform detected! Leveraging '$(CRI_BINARY)' container engine..."
 	$(CRI_BINARY) $(CRI_CMD) $(CRI_OPTS) $(OCI_URI) $(CRI_EXEC)
 	@echo "Exiting '$(CRI_BINARY)' container engine! All parent recipes are no-op'd..."
 
