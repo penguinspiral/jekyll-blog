@@ -56,9 +56,13 @@ ifeq (,$(or $(wildcard /run/.containerenv),$(AWS_PLATFORM)))
     CRI_OPTS := --rm \
                 --tty \
                 --interactive \
-                --publish 4000:4000 \
                 --volume $(CURDIR):/srv/jekyll:rw \
                 --workdir=/srv/jekyll
+
+    # Make target specific CRI options
+    ifeq ($(MAKECMDGOALS), serve)
+        CRI_OPTS += --publish 4000:4000
+    endif
 
     ifeq ($(INTERACTIVE), true)
         INTERACTIVE_CMD := ; /bin/bash
