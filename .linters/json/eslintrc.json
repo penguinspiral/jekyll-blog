@@ -1,0 +1,15 @@
+{
+  "overrides": [
+    {
+      "files": ["*.json"],
+      "extends": [
+        "plugin:jsonc/recommended-with-json",
+        "plugin:jsonc/prettier"
+      ],
+      "parser": "jsonc-eslint-parser",
+      "parserOptions": {
+        "jsonSyntax": "JSON"
+      }
+    }
+  ]
+}
