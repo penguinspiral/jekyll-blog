@@ -33,7 +33,7 @@ JEKYLL_SERVE_OPTS ?= --host 0.0.0.0 \
 ifeq (,$(or $(wildcard /run/.containerenv),$(AWS_PLATFORM)))
     EXEC_ENV := _baremetal
 
-    OCI_REGISTRY := docker.io/library
+    OCI_REGISTRY := public.ecr.aws/docker/library
     OCI_IMG      := ruby
     OCI_SHA256   := d780a9b44dc5e57a4968d3e4b086bbdd9b595f06d747da10b29e568386fe1dd9 # 3.4.2-bookworm
     OCI_URI      := $(OCI_REGISTRY)/$(OCI_IMG)@sha256:$(OCI_SHA256)
