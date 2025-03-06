@@ -2,18 +2,18 @@
 ## This Makefile abstracts Jekyll commands suitable for local development, CI/CD
 ## pipelines, and release workflows.
 ## Its OS-agnostic, container-engine-agnostic (CRI) design facilitates
-## consistent target naming regadless of its operating environment.
+## consistent target fulfilment regardless of its operating environment.
 ##
 ## To guarantee a consistent environment all Jekyll commands are performed
 ## within the context of the "defacto", glibc based official upstream Ruby
-## container (https://hub.docker.com/_/ruby). Execution of Jekyll equivalent
-## command targets outside this environment context are unsupported.
+## container (https://gallery.ecr.aws/docker/library/ruby). Execution of Jekyll
+## equivalent command targets outside this environment context are unsupported.
 ##
 ## Ruby gem caching (via 'bundler') is enabled across local development, CI/CD,
 ## pipelines, and release workflows to accelerate SDLC feedback.
 ##
 ## Supported container engines (CRI): podman, docker
-## ----------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 
 # Enter interactive shell after target execution
 INTERACTIVE ?= false
@@ -33,7 +33,7 @@ JEKYLL_SERVE_OPTS ?= --host 0.0.0.0 \
 ifeq (,$(or $(wildcard /run/.containerenv),$(AWS_PLATFORM)))
     EXEC_ENV := _baremetal
 
-    OCI_REGISTRY := docker.io/library
+    OCI_REGISTRY := public.ecr.aws/docker/library
     OCI_IMG      := ruby
     OCI_SHA256   := d780a9b44dc5e57a4968d3e4b086bbdd9b595f06d747da10b29e568386fe1dd9 # 3.4.2-bookworm
     OCI_URI      := $(OCI_REGISTRY)/$(OCI_IMG)@sha256:$(OCI_SHA256)
