@@ -1,0 +1,7 @@
+---
+comments: true
+continue: true
+diff: true
+trailing-commas: false
+duplicate-keys: false
+pretty-print: true

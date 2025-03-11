@@ -7,6 +7,7 @@
 #
 
 ENABLE:
+  - JSON
   - MARKDOWN
   - SPELL
   - YAML
@@ -18,7 +19,39 @@ PRINT_ALPACA: false
 PRINT_ALL_FILES: true
 
 APPLY_FIXES:
- - YAML_PRETTIER
+  - JSON_PRETTIER
+  - YAML_PRETTIER
+
+
+#
+# JSON
+# https://megalinter.io/7.7.0/descriptors/json/
+#
+JSON_FILTER_REGEX_INCLUDE: (.linters/)
+
+# Linter name:       jsonlint
+# Linter version:    14.0.3
+# Linter config:     https://github.com/prantlf/jsonlint#configuration
+# MegaLinter config: https://megalinter.io/7.7.0/descriptors/json_jsonlint/
+JSON_JSONLINT_CONFIG_FILE: 'json/jsonlintrc.yaml'
+
+# Linter name:       eslint-plugin-jsonc
+# Linter version:    2.10.0
+# Linter config:     https://github.com/ota-meshi/eslint-plugin-jsonc#configuration
+# MegaLinter config: https://megalinter.io/7.7.0/descriptors/json_eslint_plugin_jsonc
+JSON_ESLINT_PLUGIN_JSONC_CONFIG_FILE: 'json/eslintrc.json'
+
+# Linter name:       v8r
+# Linter version:    2.1.0
+# Linter config:     https://chris48s.github.io/v8r/
+# MegaLinter config: https://megalinter.io/7.7.0/descriptors/json_v8r/
+
+# Linter name:       prettier
+# Linter version:    3.3.0
+# Linter config:     https://prettier.io/docs/en/configuration.html
+# MegaLinter config: https://megalinter.io/7.7.0/descriptors/json_prettier/
+JSON_PRETTIER_CONFIG_FILE: 'json/prettierrc.yaml'
+
 
 #
 # MARKDOWN
