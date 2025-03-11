@@ -10,6 +10,7 @@
 !.stylelintrc.json
 
 # MegaLinter
+megalinter-reports
 !.mega-linter.yml
 !.linters
 !.linters-cache/README.md

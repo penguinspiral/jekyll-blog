@@ -124,3 +124,17 @@ YAML_YAMLLINT_CONFIG_FILE: 'yaml/yamllint.yaml'
 # Linter config:     https://github.com/chris48s/v8r#configuration
 # MegaLinter config: https://megalinter.io/v6/descriptors/yaml_v8r/
 YAML_V8R_CLI_LINT_MODE: 'project'
+
+
+#
+# REPORTERS
+# https://megalinter.io/7.7.0/reporters/
+#
+
+# Reporter name:   IDE-config
+# Reporter config: https://megalinter.io/7.7.0/reporters/ConfigReporter/
+CONFIG_REPORTER: false
+
+# Reporter name:   E-mail
+# Reporter config: https://megalinter.io/7.7.0/reporters/EmailReporter/
+EMAIL_REPORTER: false
