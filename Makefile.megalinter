@@ -26,7 +26,7 @@ MAKEFILE_NAME := $(lastword $(MAKEFILE_LIST))
 MEGALINTER_CMD = /entrypoint.sh
 
 # Baremetal environment detected, utilise container engine (CRI)
-ifeq (,$(wildcard /run/.containerenv))
+ifeq (,$(or $(wildcard /run/.containerenv),$(CIRCLECI)))
     EXEC_ENV = _baremetal
 
     OCI_REGISTRY := docker.io/oxsecurity
